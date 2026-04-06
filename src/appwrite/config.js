@@ -100,8 +100,30 @@ export class AuthService {
     } catch (error) {
       console.log("Apperite service :: getCurrentUser :: error", error);
     }
+
+
+  }
+
+  async dalateFile(fileId) {
+    try {
+        await this.bucket.deleteFile(
+            conf.appBucketId,
+            fileId
+        )
+        return true
+    } catch (error) {
+        console.log("Apperite service :: getCurrentUser :: error", error);
+        return false
+    }
+  }
+
+  getFilePreview(fileId){
+      return this.bucket.getFilePreview(
+          conf.appBucketId,
+          fileId
+      )
   }
 }
 
-const service = new service();
+const service = new AuthService();
 export default service;
