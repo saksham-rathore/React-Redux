@@ -87,7 +87,21 @@ export class AuthService {
       console.log("Apperite service :: getCurrentUser :: error", error);
     }
   }
+
+  // File Upload Service
+
+  async uploadFile(file) {
+    try {
+      return await this.bucket.createFile(
+        conf.appBucketId,
+        ID.unique(),
+        file
+      )
+    } catch (error) {
+      console.log("Apperite service :: getCurrentUser :: error", error);
+    }
+  }
 }
 
-const service = new service()
-export default service
+const service = new service();
+export default service;
