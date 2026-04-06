@@ -88,3 +88,6 @@ export class AuthService {
     }
   }
 }
+
+const service = new service()
+export default service
