@@ -1,4 +1,4 @@
-import conf from "../config/conf";
+import conf from "../Config/conf";
 import { Client, ID, Databases, Storage, Query } from "appwrite";
 
 export class AuthService {
@@ -65,7 +65,7 @@ export class AuthService {
 
   async getpost(slug) {
     try {
-      await this.databases.getDocument(
+      return await this.databases.getDocument(
         conf.appDatabaseId,
         conf.appCollectionId,
         slug,
