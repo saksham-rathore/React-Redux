@@ -5,7 +5,6 @@ export class AuthService {
   client = new Client();
   databases;
   bucket;
-
   constructor() {
     this.client.setEndpoint(conf.appWrite).setProject(conf.appProjectId);
     this.databases = new Databases(this.client);
